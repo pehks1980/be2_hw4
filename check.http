@@ -1,0 +1,18 @@
+GET http://localhost:9090/metrics
+
+###
+POST http://localhost:9090/entity
+Content-Type: application/x-www-form-urlencoded
+
+id=27&data=new-element
+
+###
+GET http://localhost:9090/entities
+Accept: application/json
+
+wrk -t1 -c1 -d 5m http://192.168.1.103:9090/entities
+
+wrk -t1 -c1 -d5m -s wrk.lua http://192.168.1.103:9090
+
+###
+###
